@@ -4,14 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneryManager : MonoBehaviour
+public class SceneryManager : Singleton<SceneryManager>
 {
     [SerializeField] Image screenImage;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject); // 게임오브젝트 파괴x 다음 씬으로 같이 넘어감
-    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;   

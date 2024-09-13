@@ -24,6 +24,11 @@ public class Runner : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
     }
+
+    private void OnEnable()
+    {
+        InputManager.Instance.action += OnKeyUpdate;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -62,9 +67,9 @@ public class Runner : MonoBehaviour
     {
         Move();
     }
-    // Update is called once per frame
-    void Update()
+
+    private void OnDisable()
     {
-        OnKeyUpdate();
+        InputManager.Instance.action -= OnKeyUpdate;
     }
 }
