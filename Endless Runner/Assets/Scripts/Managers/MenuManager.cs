@@ -6,37 +6,27 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] Button button;
-    void Execute()
+    public void Execute()
     {
-
+        StartCoroutine(SceneryManager.Instance.AsyncLoad(1));
     }
 
-    void Shop()
+    public void Shop()
     {
-
+        Debug.Log("Shop");
     }
 
-    private void OnApplicationQuit()
+    public void Quit()
     {
-        
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
+
     // Start is called before the first frame update
     void Start()
-    {
-        button = GetComponent<Button>();
-    }
-
-    private void OnEnter()
-    {
-
-    }
-    public void OnLeave()
-    {
-
-    }
-
-    public void OnSelect()
     {
 
     }

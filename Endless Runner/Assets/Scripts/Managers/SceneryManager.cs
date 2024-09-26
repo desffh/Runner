@@ -18,15 +18,6 @@ public class SceneryManager : Singleton<SceneryManager>
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(AsyncLoad(1)); // 비동기 방식
-            //SceneManager.LoadScene(1); // 동기 방식
-        }
-    }
 
     public IEnumerator FadeIn()
     {
