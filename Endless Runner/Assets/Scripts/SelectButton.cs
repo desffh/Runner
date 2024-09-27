@@ -7,6 +7,8 @@ public class SelectButton : MonoBehaviour
 {
     [SerializeField] Text buttonText;
 
+    [SerializeField] AudioClip enterAudioClip;
+
     private void Awake()
     {
         buttonText = GetComponentInChildren<Text>();
@@ -14,6 +16,7 @@ public class SelectButton : MonoBehaviour
     public void OnEnter()
     {
         buttonText.fontSize = 100;
+        AudioManager.Instance.Listen(enterAudioClip);
     }
     public void OnLeave()
     {
