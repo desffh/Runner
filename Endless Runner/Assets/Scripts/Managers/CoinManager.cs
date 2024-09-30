@@ -8,8 +8,6 @@ public class CoinManager : MonoBehaviour
 {
     [SerializeField] List <GameObject> coins;
 
-    [SerializeField] GameObject prefab;
-
     [SerializeField] int createCount = 16;
 
     [SerializeField] float offset = 2.5f;
@@ -25,18 +23,23 @@ public class CoinManager : MonoBehaviour
     {
         for (int i = 0; i < createCount; i++)
         {
-            GameObject instance = Instantiate(prefab);
-            instance.transform.SetParent(gameObject.transform); // 자식오브젝트로 생성
-            instance.transform.localPosition = 
-                new Vector3(0f, prefab.transform.position.y, offset * i);
+            GameObject clone = ResourcesManager.Instance.Instantiate("Coin", gameObject.transform);
 
-            instance.SetActive(false);
+            clone.transform.localPosition = 
+                new Vector3(0f, 0.825f, offset * i);
 
-            coins.Add(instance);
+            clone.SetActive(false);
+
+            coins.Add(clone);
         }
     }
     public void InitializePosition()
     {
         transform.localPosition = new Vector3(positionX * Random.Range(-1, 2), 0, 0);
+
+        foreach (GameObject clone in coins)
+        {
+            clone.SetActive(true);
+        }
     }
 }
