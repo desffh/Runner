@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : State
 {
     [SerializeField] float speed;
 
     [SerializeField] GameObject rotationGameObject;
 
-    private void OnEnable()
+    private new void OnEnable()
     {
+        base.OnEnable();
+
         rotationGameObject = GameObject.Find("RotationGameobject");
 
         speed = rotationGameObject.GetComponent<RotationGameObject>().Speed;
