@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a5a1938b89cda409489e81ff85bceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 1
   offset: 40
   roads:
   - {fileID: 658951953}
@@ -1635,6 +1636,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2112287615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112287616}
+  - component: {fileID: 2112287617}
+  m_Layer: 0
+  m_Name: ObstacleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2112287616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112287615}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112287617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112287615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa6c27528f8aa04f95efa93b765ee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createCount: 5
+  obstacleList: []
 --- !u!1001 &2115100406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3499,6 +3546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94845df2702066142b8ab640d704ccc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 1
   animator: {fileID: 0}
   roadline: 0
   rigidBody: {fileID: 0}
@@ -4144,3 +4192,4 @@ SceneRoots:
   - {fileID: 809384731}
   - {fileID: 1966690170}
   - {fileID: 967701393}
+  - {fileID: 2112287616}

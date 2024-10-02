@@ -9,7 +9,9 @@ public class State : MonoBehaviour
 
     protected void OnEnable()
     {
-        Debug.Log("Event Register");
+        EventManager.Subscribe(EventType.START,OnExecute);
+        EventManager.Subscribe(EventType.STOP,OnStop);
+
     }
 
     protected void OnExecute()

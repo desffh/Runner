@@ -29,6 +29,7 @@ public class Runner : State
 
     private new void OnEnable()
     {
+        
         base.OnEnable();
 
         InputManager.Instance.action += OnKeyUpdate;
