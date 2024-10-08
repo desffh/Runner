@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class ObstaclePositionManager : MonoBehaviour
 {
+    private Coroutine coroutine;
+
     [SerializeField] float [] randompositionZ = new float[16];
 
     [SerializeField] int index = -1;
+    
     [SerializeField] Transform [ ] parentRoads;
+
+    [SerializeField] Transform [ ] positionRandomX;
+
+    [SerializeField] ObstacleManager obstacleManager; // 가져오기
 
     private void Awake()
     {
@@ -17,14 +24,35 @@ public class ObstaclePositionManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    public IEnumerator SetPosition()
+    {
+        while (true)
+        {
+            yield return CoroutineCache.WaitForSecond(2.5f);
+
+            transform.localPosition = new Vector3
+                (0, 0,
+                randompositionZ[Random.Range(0, randompositionZ.Length)]);
+
+            obstacleManager.GetObstacle().SetActive(true);
+
+            obstacleManager.GetObstacle().transform.position =
+                positionRandomX[Random.Range(0, positionRandomX.Length)].position;
+
+            obstacleManager.GetObstacle().transform.SetParent(transform.root.GetChild(index));
+        }
     }
+
 
     public void InitializePosition()
     {
+        if(coroutine == null)
+        {
+            Debug.Log("Coroutine");
+            coroutine = StartCoroutine(SetPosition());
+        }
+
         index = ( index + 1) % parentRoads.Length;
 
         transform.SetParent(parentRoads[index]);

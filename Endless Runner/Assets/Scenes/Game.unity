@@ -1236,6 +1236,11 @@ MonoBehaviour:
   - {fileID: 1231680247}
   - {fileID: 973368346}
   - {fileID: 586145861}
+  positionRandomX:
+  - {fileID: 494654765}
+  - {fileID: 1060861014}
+  - {fileID: 1490028578}
+  obstacleManager: {fileID: 2112287617}
 --- !u!4 &1550796761
 Transform:
   m_ObjectHideFlags: 0
