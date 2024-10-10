@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class ObstacleDisableZone : MonoBehaviour
 {
-    [SerializeField] Obstacle obstacle;
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        Obstacle obstacle = other.GetComponent<Obstacle>();
+
+        if (obstacle != null)
+        {
+            other.gameObject.SetActive(false); // ºÎµúÈù°É ºñÈ°¼ºÈ­
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

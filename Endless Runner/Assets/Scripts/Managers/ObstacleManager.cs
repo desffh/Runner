@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleManager : MonoBehaviour
+public class ObstacleManager : State
 {
     [SerializeField] int createCount = 5;
 
@@ -45,7 +45,7 @@ public class ObstacleManager : MonoBehaviour
 
     public IEnumerator ActiveObstacle()
     {
-        while (true)
+        while (state)
         {
             yield return CoroutineCache.WaitForSecond(2.5f);
     
